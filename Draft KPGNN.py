@@ -1,15 +1,19 @@
-#import pytorch/tensorflow 
-#import matplot lib 
-#import pandas
-#import torch.nn.functional
-#from torch_geometric.nn import GCNConv
-#import sys
-#import time
 #import os
-#import scipy
-#import requests
-#import torch-geometric (install)   
-#import data
+import tarfile
+import pandas as pd
+#import protein DB data
+from io import StringIO
+import pytorch
+#import tensorflow 
+import torch
+import toch.nn.functional as F
+from torch_geometric.data import data
+from torch_geometric.nn import GCNConv
+import torch.optim as optim
+import sys
+import time
+import scipy
+import matplotlib.pyplot as plt
 
 # Extract DNA sequencing data from tar file
 def extract_dna_data(tar_file_path, extract_path):
