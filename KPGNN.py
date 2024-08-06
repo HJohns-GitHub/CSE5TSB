@@ -6,15 +6,19 @@ from io import StringIO
 import pytorch
 #import tensorflow 
 import torch
-import toch.nn.functional as F
+import torch.nn.functional as F
 from torch_geometric.data import data
 from torch_geometric.nn import GCNConv
 import torch.optim as optim
 import sys
 import time
 import scipy
-import matplotlib.pyplot as plt
-
+import Pylance
+#for plotting GNN output in 2D
+from matplotlib import pyplot as plt
+from random import randint
+#randomise graph date for testing purposes
+graph_date = []
 # Extract DNA sequencing data from tar file
 def extract_dna_data(tar_file_path, extract_path):
     with tarfile.open(tar_file_path, "r:*") as tar:
