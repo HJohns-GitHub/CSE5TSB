@@ -114,3 +114,5 @@ for epoch in range(100):
     optimizer.step()
     
     print(f'Epoch {epoch+1}, Loss: {loss.item()}')
+
+#Layer wise relevance backpropagation
