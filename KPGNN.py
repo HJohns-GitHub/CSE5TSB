@@ -116,3 +116,28 @@ for epoch in range(100):
     print(f'Epoch {epoch+1}, Loss: {loss.item()}')
 
 #Layer wise relevance backpropagation
+
+def LRP(model, data, target):
+    model.eval()
+    output = model(data)
+    loss = F.cross_entropy(output.view(1, -1), target)
+    loss.backward()
+    
+    relevance = data.x.grad
+    return relevance
+
+#visualise the output of the GNN in 2D
+def plot_output(data, output):
+    output = output.detach().numpy()
+    plt.scatter(output[:, 0], output[:, 1])
+    
+    for i in range(data.num_nodes):
+        x = output[i, 0]
+        y = output[i, 1]
+        plt.text(x, y, str(i), color="red")
+        
+    plt.show()
+
+#Example
+LRP(model, graph_data, torch.tensor([0]))
+plot_output(graph_data, output)
