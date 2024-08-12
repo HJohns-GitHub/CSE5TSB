@@ -350,4 +350,5 @@ def __init__(self, model, samples, labels):
         print("\n\t" + name + ",", "relevance propagation time is: ", end - start)
 
         return rel
+#Example of relevance propagation
 
